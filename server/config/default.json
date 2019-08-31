@@ -1,0 +1,3 @@
+{
+  "mongoUri": "mongodb+srv://devconnect_admin:devconnect@devconnect-vgnku.mongodb.net/test?retryWrites=true&w=majority"
+}
