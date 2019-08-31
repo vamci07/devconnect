@@ -1,3 +1,4 @@
 {
-  "mongoUri": "mongodb+srv://devconnect_admin:devconnect@devconnect-vgnku.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://devconnect_admin:devconnect@devconnect-vgnku.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
 }
