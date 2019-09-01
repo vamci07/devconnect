@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "clean:node": "rm -rf ./node_modules package-lock.json yarn.lock",
     "start": "node ./bin/www",
     "debug": "DEBUG=server:* npm start",
     "server": "nodemon ./bin/www"

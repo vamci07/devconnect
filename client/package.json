@@ -8,11 +8,12 @@
     "react-scripts": "3.1.1"
   },
   "scripts": {
+    "clean:node": "rimraf ./node_modules package-lock.json yarn.lock",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "prettier": "prettier --write src/",
-    "lint": "eslint --fix src/"
+    "prettier": "prettier --write src/**/*.js",
+    "lint": "eslint --fix src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +36,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.4",
     "lint-staged": "^9.2.5",
