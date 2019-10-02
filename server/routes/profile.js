@@ -105,4 +105,41 @@ router.post(
   }
 );
 
+router.get('/', async function(req, res, next) {
+  try {
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    res.json(profiles);
+  } catch (error) {
+    console.error(error.message), res.status(500).send('Server error');
+  }
+});
+
+router.get('/user/:userid', async function(req, res, next) {
+  try {
+    const profile = await Profile.findOne({ user: req.params.userid }).populate('user', [
+      'name',
+      'avatar'
+    ]);
+    if (!profile) {
+      return res.status(400).json({ msg: 'Profile not found' });
+    }
+    res.json(profile);
+  } catch (error) {
+    if (error.kind === 'ObjectId') {
+      return res.status(400).json({ msg: 'Profile not found' });
+    }
+    console.error(error.message), res.status(500).send('Server error');
+  }
+});
+
+router.delete('/', auth, async function(req, res, next) {
+  try {
+    await Profile.findOneAndRemove({ user: req.user.id });
+    await User.findOneAndRemove({ _id: req.user.id });
+    res.json({ msg: 'User deleted!' });
+  } catch (error) {
+    console.error(error.message), res.status(500).send('Server error');
+  }
+});
+
 module.exports = router;
